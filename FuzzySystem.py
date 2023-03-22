@@ -1,14 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
-
 conda install -c conda-forge/label/gcc7 scikit-fuzzy 
-
-
-# In[5]:
-
 
 import numpy as np
 import skfuzzy as fuzz
@@ -17,6 +10,7 @@ import matplotlib.pyplot as plt
 x_fund = np.arange(0, 101, 1)
 x_ps = np.arange(0, 101, 1)
 x_risk  = np.arange(0, 101, 1)
+
 
 # fuzzy membership functions 생성
 fund_lo = fuzz.trapmf(x_fund, [0, 0, 25, 45])
@@ -29,6 +23,7 @@ ps_md = fuzz.trapmf(x_ps, [36, 75, 100, 100])
 risk_lo = fuzz.trapmf(x_risk, [0, 0, 25, 42])
 risk_md = fuzz.trapmf(x_risk, [30, 45, 55, 70])
 risk_hi = fuzz.trapmf(x_risk, [58, 75, 100, 100])
+
 
 # 시각화
 fig, (ax0, ax1, ax2) = plt.subplots(nrows=3, figsize=(8, 9))
@@ -49,6 +44,7 @@ ax2.plot(x_risk, risk_md, 'g', linewidth=1.5, label='Medium')
 ax2.plot(x_risk, risk_hi, 'r', linewidth=1.5, label='High')
 ax2.set_title('Risk')
 ax2.legend()
+
 
 # 상, 우측 축 지우기
 for ax in (ax0, ax1, ax2):
@@ -171,16 +167,3 @@ plt.tight_layout()
 
 
 print(risk)
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
